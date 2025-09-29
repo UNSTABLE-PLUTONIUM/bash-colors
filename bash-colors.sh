@@ -1,44 +1,50 @@
-black=0
-red=1
-green=2
-yellow=3
-blue=4
-magenta=5
-cyan=6
-white=7
+#! /usr/bin/bash
 
-color_f() {
-	echo -ne "\x1b[3$1m"
+foreground=3
+background=4
+bright_foreground=9
+bright_background=10
+
+black() {
+	echo -ne "\e[$10m"
 }
 
-color_fb() {
-	echo -ne "\x1b[9$1m"
+red() {
+	echo -ne "\e[$11m"
 }
 
-color_b() {
-	echo -ne "\x1b[4$1m"
+green() {
+	echo -ne "\e[$12m"
 }
 
-color_bb() {
-	echo -ne "\x1b[10$1m"
+yellow() {
+	echo -ne "\e[$13m"
 }
 
-color_frgb() {
-	echo -ne "\x1b[38;2;$1;$2;$3m"
+blue() {
+	echo -ne "\e[$14m"
 }
 
-color_brgb() {
-	echo -ne "\x1b[48;2;$1;$2;$3m"
+cyan() {
+	echo -ne "\e[$15m"
 }
 
-reset_f() {
-	echo -ne "\x1b[39m"
+magenta() {
+	echo -ne "\e[$16m"
 }
 
-reset_b() {
-	echo -ne "\x1b[49m"
+white() {
+	echo -ne "\e[$17m"
+}
+
+reset_foreground() {
+	echo -ne "\e[39m"
+}
+
+reset_background() {
+	echo -ne "\e[49m"
 }
 
 reset_all() {
-	echo -ne "\x1b[39;49m"
+	echo -ne "\e[49;39m"
 }
